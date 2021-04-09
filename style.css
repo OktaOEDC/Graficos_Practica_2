@@ -5,7 +5,17 @@ body, html{
 	height: 100%;
 	text-align: center;
 	background: #000;
-    color: aliceblue;
+    color:hotpink;
+    font-family: Comic Sans Ms,Arial, Helvetica, sans-serif;
+}
+h2{
+    color:bisque;
+}
+.ranges{
+    flex: auto;
+    flex-wrap:wrap-reverse;
+    flex-flow: row;
+    padding-bottom: 2%;
 }
 
 canvas#canvas{
@@ -17,48 +27,4 @@ canvas#canvas{
 	position: relative;
   	top: 50%;
   	transform: translateY(-50%);
-}
-.translationX::-webkit-slider-runnable-track {
-  background: red;
-  height: 10px;
-}
-
-.translationY::-webkit-slider-runnable-track {
-  background: green;
-  height: 10px;
-}
-
-.translationZ::-webkit-slider-runnable-track {
-  background: blue;
-  height: 10px;
-}
-
-.scalingX::-webkit-slider-runnable-track {
-  background: red;
-  height: 10px;
-}
-
-.scalingY::-webkit-slider-runnable-track {
-  background: green;
-  height: 10px;
-}
-
-.scalingZ::-webkit-slider-runnable-track {
-  background: blue;
-  height: 10px;
-}
-
-.rotationX::-webkit-slider-runnable-track {
-  background: red;
-  height: 10px;
-}
-
-.rotationY::-webkit-slider-runnable-track {
-  background: green;
-  height: 10px;
-}
-
-.rotationZ::-webkit-slider-runnable-track {
-  background: blue;
-  height: 10px;
 }

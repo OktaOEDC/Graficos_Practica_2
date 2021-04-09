@@ -1,8 +1,8 @@
 var renderer, scene, camera, model;
 
-var xRotate = 0;
-var yRotate = 0;
-var zRotate = 0;
+var xRotate = 0.0;
+var yRotate = 0.0;
+var zRotate = 0.0;
 
 var xTranslate = 0;
 var yTranslate = 0;
@@ -19,7 +19,7 @@ function init() {
 
     document.getElementById("xTranslation").onchange = function () {
         xTranslate = parseFloat(event.target.value);
-        requestAnimationFrame(render);
+        requestAnimationFrame(model);
         model.position.x = xTranslate;
 
         console.log('xTranslate: ' + xTranslate);
@@ -38,14 +38,19 @@ function init() {
     };
     document.getElementById("xScaling").onchange = function () {
         xScale = parseFloat(event.target.value);
+        model.scale.x = 2+xScale;
         requestAnimationFrame(render);
     };
     document.getElementById("yScaling").onchange = function () {
         yScale = parseFloat(event.target.value);
+        model.scale.y = 2+yScale;
+
         requestAnimationFrame(render);
     };
-    document.getElementById("yScaling").onchange = function () {
+    document.getElementById("zScaling").onchange = function () {
         zScale = parseFloat(event.target.value);
+        model.scale.z = 2+zScale;
+
         requestAnimationFrame(render);
     };
     document.getElementById("xRotation").onchange = function () {
@@ -67,8 +72,8 @@ function init() {
 
     scene = new THREE.Scene();
 
-    camera = new THREE.PerspectiveCamera(50, ww / wh, 0.1, 10000);
-    camera.position.set(0, 0, 500);
+    camera = new THREE.PerspectiveCamera(90, ww / wh, 0.5, 1000);
+    camera.position.set(0,120, 500);
     scene.add(camera);
 
     //Add a light in the scene
@@ -92,18 +97,13 @@ var loadOBJ = function () {
     var loader = new THREE.OBJLoader(manager);
 
     //Launch loading of the obj file, addBananaInScene is the callback when it's ready 
-    loader.load('https://raw.githubusercontent.com/Alecfut07/Graficas-y-visualizacion/master/Casquito.obj', addModeltoScene);
+    loader.load('https://raw.githubusercontent.com/OktaOEDC/Graficos_Practica_2/main/Estadio.obj', addModeltoScene);
 
 };
 
 var addModeltoScene = function (object) {
     model = object;
     model.needsUpdate=true;
-
-
-    //model.TranslateX(xTranslate);
-    //model.TranslateY(yTranslate);
-    //model.TranslateZ(zTranslate);
     model.scale.x = 2 + xScale;
     model.scale.y = 2 + yScale;
     model.scale.z = 2 + zScale;
@@ -113,7 +113,7 @@ var addModeltoScene = function (object) {
 
     object.traverse(function (child) {
         if (child instanceof THREE.Mesh) {
-            child.material.color = new THREE.Color('pink');
+            child.material.color = new THREE.Color('hotpink');
             child.material.needsUpdate = true;
             child.geometry.computeVertexNormals();
         }

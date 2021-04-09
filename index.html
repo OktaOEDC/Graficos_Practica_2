@@ -9,22 +9,29 @@
     <link rel="stylesheet" href="/style.css">
     <title>Practica 2</title>
 </head>
+    <h1>Practica 2 de Graficas</h1>
+    <h2 class='h2'>Solo lo hizo Omar, por eso esta tan feo el CSS</h2>
 <body>
 
-<br>
+    
+    <div class="ranges">
+
+        <div class="ranges">
 Traslación X -5<input class="translationX" id="xTranslation" type="range" min=-80" max="80" step="1" value="0"/>5
-Escalamiento X 0.2<input class="scalingX" id="xScaling" type="range" min="0" max="2" step="0.1" value="0"/>2
-Rotación X 0<input class="rotationX" id="xRotation" type="range" min="0" max="1" step="0.1" value="0">10<br>
-</br>
+Escalamiento X 0.2<input class="scalingX" id="xScaling" type="range" min="0" max="5" step="1" value="0"/>5
+Rotación X 0<input class="rotationX" id="xRotation" type="range" min="0" max="0.01" step="0.0001" value="0">10<br>
+</div>
+<div class="ranges">
 Traslación Y -5<input class="translationY" id="yTranslation" type="range" min=-80" max="80" step="1" value="0"/>5
 Escalamiento Y 0.2<input class="scalingY" id="yScaling" type="range" min="0.2" max="2" step="0.01" value="1.0"/>2
-Rotación Y 0<input class="rotationY" id="yRotation" type="range" min="0" max="1" step="0.1" value="0">10<br>
-
+Rotación Y 0<input class="rotationY" id="yRotation" type="range" min="0" max="0.01" step="0.0001" value="0">10<br>
+</div>
+<div class="ranges">
 Traslación Z -5<input class="translationZ" id="zTranslation" type="range" min=-80" max="80" step="1" value="0"/>5
 Escalamiento Z 0.2<input class="scalingZ" id="zScaling" type="range" min="0.2" max="2" step="0.01" value="1.0"/>2
-Rotación Z 0<input class="rotationZ" id="zRotation" type="range" min="0" max="1" step="0.1" value="0">10<br>
-
-
+Rotación Z 0<input class="rotationZ" id="zRotation" type="range" min="0" max="0.01" step="0.0001" value="0">10<br>
+</div>
+</div>
 
 <canvas id="gl-canvas" width="512" height="512">
 </canvas>
