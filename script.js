@@ -20,12 +20,20 @@ function init() {
     document.getElementById("xTranslation").onchange = function () {
         xTranslate = parseFloat(event.target.value);
         requestAnimationFrame(render);
+        model.position.x = xTranslate;
+
         console.log('xTranslate: ' + xTranslate);
-        init();
     };
     document.getElementById("yTranslation").onchange = function () {
         yTranslate = parseFloat(event.target.value);
+        model.position.y = yTranslate;
         console.log('yTranslate: ' + yTranslate);
+        requestAnimationFrame(render);
+    };
+    document.getElementById("zTranslation").onchange = function () {
+        zTranslate = parseFloat(event.target.value);
+        model.position.z = zTranslate;
+        console.log('zTranslate: ' + yTranslate);
         requestAnimationFrame(render);
     };
     document.getElementById("xScaling").onchange = function () {
@@ -92,9 +100,7 @@ var addModeltoScene = function (object) {
     model = object;
     model.needsUpdate=true;
 
-    //model.position.x = xTranslate;
-    //model.position.y = yTranslate;
-    //model.position.z = zTranslate;
+
     //model.TranslateX(xTranslate);
     //model.TranslateY(yTranslate);
     //model.TranslateZ(zTranslate);
@@ -123,7 +129,7 @@ var render = function () {
     model.rotation.x += xRotate;
     model.rotation.y += yRotate;
     model.rotation.z += zRotate;
-
+    model.updateMatrix();
     renderer.render(scene, camera);
 };
 
