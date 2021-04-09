@@ -1,4 +1,6 @@
 
+var renderer, scene, camera, model;
+
 var xRotate=0.01;
 var yRotate=0;
 var zRotate=0;
@@ -17,12 +19,12 @@ var ww = window.innerWidth,
 function init(){
   
   document.getElementById("xTranslation").onchange=function(){
-  xTranslate = //parsear slider
+  xTranslate = parseFloat(event.target.value);
   console.log(xT);};
 document.getElementById("yTranslation").onchange=function(){
-  yTranslate = //parsear slider
+  yTranslate = parseFloat(event.target.value);};
 document.getElementById("zTranslation").onchange=function(){
-  zTranslate = //parsear slider 
+  zTranslate = parseFloat(event.target.value);};
 
 	renderer = new THREE.WebGLRenderer({canvas : document.getElementById('gl-canvas')});
 	renderer.setSize(ww,wh);
@@ -33,20 +35,58 @@ document.getElementById("zTranslation").onchange=function(){
 	camera.position.set(0,0,500);
 	scene.add(camera);
 
+	//Add a light in the scene
 	directionalLight = new THREE.DirectionalLight( 0xffffff, 0.8 );
 	directionalLight.position.set( 0, 0, 350 );
 	directionalLight.lookAt(new THREE.Vector3(0,0,0));
 	scene.add( directionalLight );
 
+	//Load the obj file
 	loadOBJ();
 }
 
 var loadOBJ = function(){
 
+	//Manager from ThreeJs to track a loader and its status
 	var manager = new THREE.LoadingManager();
+	//Loader for Obj from Three.js
 	var loader = new THREE.OBJLoader( manager );
   
 	//Launch loading of the obj file, addBananaInScene is the callback when it's ready 
-	loader.load( 'https://raw.githubusercontent.com/Alecfut07/Graficas-y-visualizacion/master/Casquito.obj', addToScene);
+	loader.load( 'https://raw.githubusercontent.com/Alecfut07/Graficas-y-visualizacion/master/Casquito.obj', addModeltoScene);
 
 };
+
+var addModeltoScene = function(object){
+	model = object;  
+	model.position.x = xTranslate;
+	model.position.y = yTranslate;
+	model.position.z = zTranslate;
+    model.scale.x=2+xScale;
+    model.scale.y=2+yScale;
+    model.scale.z=2+zScale;
+    
+
+  
+	object.traverse( function ( child ) {
+		if(child instanceof THREE.Mesh){
+			child.material.color = new THREE.Color('pink');
+			child.geometry.computeVertexNormals();
+		}
+	});
+	//aqui se agrega el modelo a la escena
+	scene.add(model);
+	render();
+};
+
+
+var render = function () {
+	requestAnimationFrame(render);
+	model.rotation.x += xRotate;
+	model.rotation.y += yRotate;
+	model.rotation.z += zRotate;
+
+	renderer.render(scene, camera);
+};
+
+init();

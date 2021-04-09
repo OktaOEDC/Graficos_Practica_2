@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/OktaOEDC/Graficos_Practica_2#readme",
   "dependencies": {
-    "three": "^0.127.0"
+    "three": "^0.127.0",
+    "three-obj-loader": "^1.1.3"
   }
 }
