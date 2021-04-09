@@ -1,0 +1,22 @@
+{
+  "name": "graficos_practica_2",
+  "version": "1.0.0",
+  "description": "Transformaciones a objeto obj",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OktaOEDC/Graficos_Practica_2.git"
+  },
+  "keywords": [
+    "graficos"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OktaOEDC/Graficos_Practica_2/issues"
+  },
+  "homepage": "https://github.com/OktaOEDC/Graficos_Practica_2#readme"
+}
