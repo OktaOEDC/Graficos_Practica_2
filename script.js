@@ -19,8 +19,8 @@ function init() {
 
     document.getElementById("xTranslation").onchange = function () {
         xTranslate = parseFloat(event.target.value);
-        requestAnimationFrame(model);
         model.position.x = xTranslate;
+        requestAnimationFrame(model);
 
         console.log('xTranslate: ' + xTranslate);
     };
