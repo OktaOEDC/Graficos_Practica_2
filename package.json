@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/OktaOEDC/Graficos_Practica_2/issues"
   },
-  "homepage": "https://github.com/OktaOEDC/Graficos_Practica_2#readme"
+  "homepage": "https://github.com/OktaOEDC/Graficos_Practica_2#readme",
+  "dependencies": {
+    "three": "^0.127.0"
+  }
 }
